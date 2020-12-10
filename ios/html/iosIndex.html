@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ios常见问题总结</title>
+	</head>
+	<body>
+		<h3>一、TableView reloadData刷新卡顿问题、刷新不在顶部问题</h3>
+		<ol>
+			<li>显示不到顶部</li>
+			<ul>
+				<li>
+					造成原因:没有实现返回高度的代理，tableView刷新渲染时，并不明确cell的高度具体会是多少，以及cell自适应高度的机制问题。可能的异常发生逻辑就是系统先拿模糊高度进行渲染，当cell高度确定后，又调整了高度，所以发生的抖动。
+				</li>
+				<li>
+					解决办法:[self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+				</li>
+			</ul>
+			<br />
+			<li>contentOffset造成偏差原因</li>
+			<ul>
+				<li>
+					造成原因：<br />
+					UITableView在设置contentOffset的同时也reload，造成tableView的contentOffset偏差
+				</li>
+				<li>
+					解决办法：<br />
+					固定TableVIew 高度 self.tableView.rowHeight = 140;
+				</li>
+			</ul>
+			<br />
+			<li>
+				总结：解决办法
+			</li>
+			self.tableView.rowHeight = 140;<br />
+			[self.tableView reloadData];<br />
+			[self.tableView layoutIfNeeded];<br />
+			[self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];<br />
+		</ol>
+
+
+	</body>
+</html>
