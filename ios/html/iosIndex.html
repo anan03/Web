@@ -32,11 +32,48 @@
 			<li>
 				总结：解决办法
 			</li>
-			self.tableView.rowHeight = 140;<br />
-			[self.tableView reloadData];<br />
-			[self.tableView layoutIfNeeded];<br />
-			[self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];<br />
+			<ol>
+				<li>标准解决方法:<br />
+					self.tableView.rowHeight = 140;<br />
+					[self.tableView reloadData];<br />
+					[self.tableView layoutIfNeeded];<br />
+					[self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+				</li>
+				<br />
+				<li>延迟再执行:<br />
+					[self.tableView reloadData];<br />
+					dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 /*延迟执行时间*/ * NSEC_PER_SEC));<br />
+					dispatch_after(delayTime, dispatch_get_main_queue(), ^{<br />
+					[self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];<br />
+					});
+				</li>
+			</ol>
 		</ol>
+		<h3>二、iOS TableView reloadData刷新列表cell乱跳、tableview闪动的问题。</h3>
+
+		<ol>
+			解决方法:<br />
+			<li>
+				在iOS 11Self-Sizing自动打开后，contentSize和contentOffset都可能发生改变。可以通过以下方式禁用<br />
+				self.estimatedRowHeight = 0;<br />
+				self.estimatedSectionHeaderHeight = 0;<br />
+				self.estimatedSectionFooterHeight = 0;<br /><br />
+			</li>
+			<li>
+				在iOS 10 以下 通过以下协议方法设置精准高度就可以了<br />
+				- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+				NS_AVAILABLE_IOS(7_0);<br />
+				- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+				NS_AVAILABLE_IOS(7_0);<br />
+				- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
+				NS_AVAILABLE_IOS(7_0);<br />
+			</li>
+		</ol>
+
+		<h3>二、iOS self.view.frame.size.width在导航栏titleView计算frame时会出现宽度不准确的情况。</h3>
+		<ul>
+			<li>解决方法：[UIScreen mainScreen].bounds.size.width</li>
+		</ul>
 
 
 	</body>
