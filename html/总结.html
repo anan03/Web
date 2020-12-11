@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Html常见问题总结</title>
+	</head>
+	<body>
+		<h3>文件格式问题</h3>
+		<ol>
+			<li>解决由于&#65279（bom文件格式）产生的空白行</li>
+		</ol>
+		<br />
+		<ol>
+			<li>解决由于&#65279（bom文件格式）产生的空白行：<br />
+				把以下代码放到HTML页面的head标签里script就行了：<br />
+				<br />
+				var a = document.body.innerHTML;<br />
+				document.body.innerHTML = a.replace(/\ufeff/g, '');<br />
+			</li>
+		</ol>
+
+
+	</body>
+</html>
