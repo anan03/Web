@@ -3,11 +3,17 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Html常见问题总结</title>
+		<style type="text/css">
+			.redColor {
+				color: red;
+			}
+		</style>
 	</head>
 	<body>
 		<h3>文件格式问题</h3>
 		<ol>
 			<li>解决由于&#65279（bom文件格式）产生的空白行</li>
+			<li>布局边距问题</li>
 		</ol>
 		<br />
 		<ol>
@@ -16,6 +22,29 @@
 				<br />
 				var a = document.body.innerHTML;<br />
 				document.body.innerHTML = a.replace(/\ufeff/g, '');<br />
+			</li>
+			<br />
+			<br />
+			<li class="redColor">常见边距问题<br />
+				<ol>
+					<li>现象:<br />
+						块级元素设置内边距会撑开盒子 <br />
+						解决方法：
+						给定块级元素宽和高，就不会撑开盒子；
+					</li>
+					<br />
+					<li>
+						现象:边距的合并（也称外边距塌陷）<br />
+						两个相邻的块级元素设置垂直相邻边距（比如top、bottom），会出现外边距合并 <br />
+						会取边距大的进行设置，边距小的直接忽略，比如top=20px，bottom=40，会取bottom，top忽略；
+					</li>
+					<br />
+					<li>两个嵌套块级元素,子元素设置外边距，会出现父元素和子元素一起顶下来；<br />
+						1. 可以为父元素定义1像素的上边框或上内边距。<br />
+						2. 可以为父元素添加overflow:hidden。<br />
+
+					</li>
+				</ol>
 			</li>
 		</ol>
 

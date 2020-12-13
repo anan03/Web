@@ -1,0 +1,148 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #fafafa;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+/* IE6、7 专有 */
+li {
+	list-style: none;
+}
+
+.header {
+	height: 100px;
+	background-color: #fff;
+}
+
+.inner {
+	width: 1200px;
+	height: 100px;
+	margin: 0px auto;
+}
+
+.logo {
+	float: left;
+}
+
+.nav {
+	float: right;
+	line-height: 100px;
+}
+
+.nav li {
+	float: left;
+	margin: 0px 20px;
+}
+
+.nav li a {
+	color: #333;
+	text-decoration: none;
+}
+
+.nav li a:hover {
+	color: #2288f6;
+}
+
+.banner {
+	height: 620px;
+	background: url(../images/banner.jpg) no-repeat top center;
+}
+
+.server {
+	width: 1055px;
+	margin: 75px auto 0px;
+}
+
+.server-hd {
+	margin: 0px 25px;
+	border-top: 1px solid #ccc;
+}
+
+.server-hd h3 {
+	width: 167px;
+	height: 46px;
+	margin: -23px auto 0px;
+}
+
+.server-hd p {
+	width: 830px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 26px;
+	margin: 15px auto 0px;
+}
+
+.server-bd {
+	margin-top: 75px;
+}
+
+.server-bd li {
+	width: 320px;
+	height: 510px;
+	border: 1px solid #e7e8e9;
+	float: left;
+}
+
+.server-bd .centerli {
+	margin: 0 30px;
+}
+
+.server-bd li img {
+	margin: 40px 35px;
+
+}
+
+.server-bd li h3 {
+	font-weight: normal;
+	text-align: center;
+	height: 40px;
+}
+
+.server-bd li p {
+	font-weight: normal;
+	text-align: left;
+	line-height: 26px;
+	width: 235px;
+	margin: 0 auto;
+	font-size: 12px;
+}
+
+.server-bd li a {
+	margin: 30px auto;
+	display: block;
+	background-color: pink;
+	width: 148px;
+	height: 38px;
+	text-align: center;
+	line-height: 38px;
+	background-color: white;
+	color: #ff9412;
+	border: 1px solid #ff9412;
+	text-decoration: none;
+	border-radius: 10px;
+}
+
+.server-bd li a:hover {
+	background-color: #ff9412;
+	color: white;
+}
+
+.case {
+	margin-top: 75px;
+	width: 1055px;
+}
