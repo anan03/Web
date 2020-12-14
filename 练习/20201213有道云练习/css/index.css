@@ -98,8 +98,8 @@ li {
 	float: left;
 }
 
-.server-bd .centerli {
-	margin: 0 30px;
+.centerli {
+	margin: 0 44px;
 }
 
 .server-bd li img {
@@ -143,6 +143,91 @@ li {
 }
 
 .case {
-	margin-top: 75px;
 	width: 1055px;
+	margin: 100px auto;
+}
+
+.case-hd {
+	margin: 0 25px;
+	border-top: 1px solid #e7e8e9;
+}
+
+.case-hd h3 {
+	width: 167px;
+	height: 46px;
+	margin: -20px auto 0px;
+}
+
+.case-bd {
+	margin: 75px auto 0px;
+	position: relative;
+}
+
+.case-bd li {
+	float: left;
+	position: relative;
+}
+
+.case-bd li:hover .mask {
+	display: block;
+}
+
+.case-bd li img {
+	vertical-align: middle;
+}
+
+.case-bd li div {
+	position: absolute;
+	color: white;
+	line-height: 35px;
+	background-color: rgba(0, 0, 0, 0.3);
+	font-size: 12px;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+}
+
+.case-bd li .mask {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3) url(../images/fdj.png) no-repeat center;
+	display: none;
+}
+
+.case-bd ul {
+	overflow: hidden;
+}
+
+.case-bd a {
+	text-decoration: none;
+	font-size: 40px;
+	height: 60px;
+	width: 60px;
+	position: absolute;
+	text-align: center;
+	line-height: 60px;
+	color: white;
+	top: 50%;
+	margin-top: -30px;
+	border-radius: 50%;
+	display: block;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.case-bd a:hover {
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.left {
+	left: -90px;
+}
+
+.right {
+	right: -90px;
+}
+
+.tb {
+	width: 1055px;
+	margin: 100px auto;
 }
